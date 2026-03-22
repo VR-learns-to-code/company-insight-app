@@ -75,11 +75,22 @@
         }
     </style>
 </head>
+<p style="position:absolute; bottom:15px; font-size:12px; color:#94a3b8;">
+    Built by VR • Learning in public
+</p>
 <body>
 
     <div class="container">
-        <h2>Enter Company Name</h2>
-        <input type="text" id="nameInput" placeholder="Enter your name">
+        <h1 style="margin-bottom:10px;">NorthStar Insights</h1>
+        <p style="font-size:14px; color:#cbd5f5; margin-bottom:25px;">
+            Quick company intelligence, simplified
+        </p>
+        <input 
+            type="text" 
+            id="nameInput" 
+            placeholder="Search company (e.g. Infosys)" 
+            style="width:85%; padding:12px; border-radius:10px; border:none; outline:none; margin-bottom:15px;"
+        >
         <br>
         <button onclick="showCompany()">Search</button>
         <div id="message"></div>
@@ -122,21 +133,26 @@ function showCompany() {
 
         message.innerHTML = `
         <div style="
-            background: rgba(255,255,255,0.08);
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 15px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+            padding: 22px;
+            border-radius: 16px;
+            margin-top: 20px;
             text-align: left;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         ">
-            <h3 style="margin-bottom:10px;">${input.toUpperCase()}</h3>
+            <h3 style="margin-bottom:12px; letter-spacing:0.5px;">
+                ${input.toUpperCase()}
+            </h3>
             
             <p><strong>Revenue:</strong> ${data.revenue}</p>
             <p><strong>Industry:</strong> ${data.industry}</p>
             <p><strong>Employees:</strong> ${data.employees}</p>
             
-            <hr style="border:0.5px solid rgba(255,255,255,0.2); margin:10px 0;">
+            <hr style="border:0.5px solid rgba(255,255,255,0.15); margin:12px 0;">
             
-            <p style="font-style: italic;">${data.insight}</p>
+            <p style="font-style: italic; color:#e2e8f0;">
+                ${data.insight}
+            </p>
         </div>
     `;
         message.classList.add("show");
