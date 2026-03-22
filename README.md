@@ -1,15 +1,19 @@
-# Company Insight App
+# NorthStar Insights
 
-A simple web app to quickly view key company metrics.
+A simple web app to quickly analyze companies with key metrics and insights.
 
-## Features
+## 🔍 Features
 - Search company name
 - View revenue, industry, employees
 - Quick insight summary
 
-## Tech Used
-- HTML, CSS, JavaScript
+## 🛠 Tech Stack
+- HTML
+- CSS
+- JavaScript
 
-## Live Demo
+## 🚀 Live Demo
 https://vr-learns-to-code.github.io/company-insight-app/
 
+## ✨ Purpose
+Built as part of my journey to understand how real-world applications are designed and deployed.
