@@ -127,7 +127,9 @@ const companyData = {
 function showCompany() {
     const input = document.getElementById("nameInput").value.toLowerCase().trim();
     const message = document.getElementById("message");
-
+ // Prevent empty search
+    if (!input) return;
+    
     if (companyData[input]) {
         const data = companyData[input];
 
@@ -163,14 +165,14 @@ function showCompany() {
             </div>
 `    ;
         message.classList.add("show");
+        // Clear input AFTER processing
+        document.getElementById("nameInput").value = "";
     }
 }
     document.getElementById("nameInput").addEventListener("keypress", function(event) {
-
-     if (event.key === "Enter") {
-        showCompany();
-    }
-    document.getElementById("nameInput").value = "";
+         if (event.key === "Enter") {
+            showCompany();
+        }
     });
     </script>
 
