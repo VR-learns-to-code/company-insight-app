@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome</title>
+    <title>NorthStar Insights</title>
     <style>
         body {
             margin: 0;
@@ -75,9 +75,7 @@
         }
     </style>
 </head>
-<p style="position:absolute; bottom:15px; font-size:12px; color:#94a3b8;">
-    Built by VR • Learning in public
-</p>
+
 <body>
 
     <div class="container">
@@ -95,7 +93,9 @@
         <button onclick="showCompany()">Search</button>
         <div id="message"></div>
     </div>
-    
+    <p style="position:absolute; bottom:15px; font-size:12px; color:#94a3b8;">
+    Built by VR • Learning in public
+    </p>
     <script>
 const companyData = {
     "infosys": {
@@ -157,7 +157,11 @@ function showCompany() {
     `;
         message.classList.add("show");
     } else {
-        message.innerText = "Company not found";
+        message.innerHTML = `
+            <div style="margin-top:15px; font-size:16px; color:#fca5a5;">
+            Company not found. Try: Infosys, TCS, Wipro
+            </div>
+`    ;
         message.classList.add("show");
     }
 }
@@ -166,6 +170,7 @@ function showCompany() {
      if (event.key === "Enter") {
         showCompany();
     }
+    document.getElementById("nameInput").value = "";
     });
     </script>
 
