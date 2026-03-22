@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #e2e8f0;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            width: 320px;
+        }
+
+        h2 {
+            font-weight: 400;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        input {
+            width: 80%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+
+        input::placeholder {
+            color: #cbd5f5;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            background: #6366f1;
+            color: white;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #4f46e5;
+            transform: translateY(-1px);
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        #message.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Enter Company Name</h2>
+        <input type="text" id="nameInput" placeholder="Enter your name">
+        <br>
+        <button onclick="showCompany()">Search</button>
+        <div id="message"></div>
+    </div>
+    
+    <script>
+const companyData = {
+    "infosys": {
+        revenue: "₹1,46,000 Cr",
+        industry: "IT Services",
+        employees: "3,40,000+",
+        insight: "Stable growth, strong global presence"
+    },
+    "tcs": {
+        revenue: "₹2,25,000 Cr",
+        industry: "IT Services",
+        employees: "6,00,000+",
+        insight: "Market leader with consistent performance"
+    },
+    "reliance": {
+        revenue: "₹9,00,000 Cr",
+        industry: "Conglomerate",
+        employees: "3,80,000+",
+        insight: "Highly diversified, aggressive expansion"
+    },
+    "wipro": {
+        revenue: "₹90,000 Cr",
+        industry: "IT Services",
+        employees: "2,50,000+",
+        insight: "Stable but slower growth vs peers"
+    }
+};
+
+function showCompany() {
+    const input = document.getElementById("nameInput").value.toLowerCase().trim();
+    const message = document.getElementById("message");
+
+    if (companyData[input]) {
+        const data = companyData[input];
+
+        message.innerHTML = `
+        <div style="
+            background: rgba(255,255,255,0.08);
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 15px;
+            text-align: left;
+        ">
+            <h3 style="margin-bottom:10px;">${input.toUpperCase()}</h3>
+            
+            <p><strong>Revenue:</strong> ${data.revenue}</p>
+            <p><strong>Industry:</strong> ${data.industry}</p>
+            <p><strong>Employees:</strong> ${data.employees}</p>
+            
+            <hr style="border:0.5px solid rgba(255,255,255,0.2); margin:10px 0;">
+            
+            <p style="font-style: italic;">${data.insight}</p>
+        </div>
+    `;
+        message.classList.add("show");
+    } else {
+        message.innerText = "Company not found";
+        message.classList.add("show");
+    }
+}
+    document.getElementById("nameInput").addEventListener("keypress", function(event) {
+
+     if (event.key === "Enter") {
+        showCompany();
+    }
+    });
+    </script>
+
+</body>
+</html>
