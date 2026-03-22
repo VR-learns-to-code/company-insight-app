@@ -11,4 +11,5 @@ A simple web app to quickly view key company metrics.
 - HTML, CSS, JavaScript
 
 ## Live Demo
-[link here]
+https://vr-learns-to-code.github.io/company-insight-app/
+
